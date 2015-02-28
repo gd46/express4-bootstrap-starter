@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-var Trick = mongoose.model('Trick');
-var tricks = require('express').Router();
+var Contact = mongoose.model('Contact');
+var contacts = require('express').Router();
 var config = require('../config/config');
 var request = require('request');
 var _ = require('lodash');
@@ -9,7 +9,7 @@ var _ = require('lodash');
 exports.create = function(req, res) {
   res.render('contacts/new', {
     title: 'New Contact',
-    // contact: new Contact({})
+    contact: new Contact({})
   })
 }
 
@@ -25,15 +25,3 @@ exports.contacts = function (req, res) {
     title: 'My Contacts'
   })
 }
-
-
-
-// var express = require('express');
-// var router = express.Router();
-
-// /* GET home page. */
-// router.get('/gd46/contacts', function(req, res, next) {
-//   res.render('pages/contacts');
-// });
-
-// module.exports = router;

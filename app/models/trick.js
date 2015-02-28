@@ -190,4 +190,5 @@ Trick.statics = {
   }
 }
 
+
 module.exports = mongoose.model('Trick', Trick)

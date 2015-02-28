@@ -3,7 +3,8 @@ extends ../layouts/default
 block main
 	.row
 		.col-md-8
-			form.form-horizontal(method="post", action="contacts/create", role="form")
+			form.form-horizontal(method="post", action="/contacts/create", role="form")
+				input#_csrf(type='hidden', name='_csrf', value=_csrf)
 				.form-group
 					label.col-sm-2.control-label First Name
 					.col-sm-10
