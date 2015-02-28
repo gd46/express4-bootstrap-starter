@@ -6,6 +6,13 @@ var request = require('request');
 var _ = require('lodash');
 
 
+exports.create = function(req, res) {
+  res.render('contacts/new', {
+    title: 'New Contact',
+    // contact: new Contact({})
+  })
+}
+
 exports.contacts = function (req, res) {
   var current_username = req.user.username;
   var username_params = req.params.username;
@@ -14,7 +21,7 @@ exports.contacts = function (req, res) {
       res.redirect('/'+username_params)
   }
 
-  res.render('pages/contacts', {
+  res.render('contacts/main', {
     title: 'My Contacts'
   })
 }

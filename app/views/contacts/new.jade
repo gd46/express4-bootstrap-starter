@@ -1,0 +1,24 @@
+extends ../layouts/default
+
+block main
+	.row
+		.col-md-8
+			form.form-horizontal(method="post", action="contacts/create", role="form")
+				.form-group
+					label.col-sm-2.control-label First Name
+					.col-sm-10
+						input.form-control(type='text', name="first-name", placeholder='Enter contacts first name')
+				.form-group
+					lablel.col-sm-2.control-label Last Name
+					.col-sm-10
+						input.form-control(type='text', name="last-name", placeholder='Enter contacts last name')
+				.form-group
+					label.col-sm-2.control-label Phone Number
+					.col-sm-10
+						input.form-control(type='text', name='phone-number', placeholder='Enter contacts phone number')
+				.form-group
+					.col-sm-offset-2.col-sm-10
+						button.m-r-md.btn.btn-primary(type='submit')
+							i.fa.fa-save.text
+								span.m-l-xs.text Save Contact 
+						a.btn.btn-cancel(href='/#{User.username}/contacts') Cancel
