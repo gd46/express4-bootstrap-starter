@@ -8,6 +8,7 @@ var fs = require('fs');
 
 var userController = require(config.root + '/controllers/users');
 var trickController = require(config.root + '/controllers/tricks');
+var pageController = require(config.root + '/controllers/pages');
 
 var API = {}
 API.tricks = require(config.root + '/controllers/API/tricks');
@@ -15,6 +16,10 @@ API.Uploader = require(config.root + '/controllers/API/uploader');
 API.Users = require(config.root + '/controllers/API/users');
 
 
+
+// Page Routes
+Route
+  .get('/:username/contacts', Auth.requiresLogin, pageController.contacts)
 // API Routes
 Route
   .all('/api/*', Auth.APIrequiresUserLogin)
