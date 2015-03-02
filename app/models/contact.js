@@ -20,15 +20,15 @@ var ContactSchema = new Schema({
 	}
 });
 
-ContactSchema.methods = {
-	save: function(){
-		var self = this;
-		self.save(function(err, doc){
-			if(err) return console.error(err);
-			console.dir(doc);
-		});
-	}
-};
+// ContactSchema.methods = {
+// 	save: function(){
+// 		var self = this;
+// 		self.save(function(err, doc){
+// 			if(err) return console.error(err);
+// 			console.dir(doc);
+// 		});
+// 	}
+// };
 
 
 module.exports = mongoose.model('Contact', ContactSchema);

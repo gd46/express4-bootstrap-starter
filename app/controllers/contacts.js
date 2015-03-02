@@ -7,9 +7,9 @@ var _ = require('lodash');
 
 
 exports.create = function(req, res) {
-  res.render('contacts/new', {
-    title: 'New Contact',
-    contact: new Contact({})
+  res.render('contacts/new',{
+      title: 'New Contact',
+      contact: new Contact({})
   })
 }
 
