@@ -9,14 +9,7 @@ var _ = require('lodash');
 exports.create = function(req, res) {
   res.render('contacts/new',{
       title: 'New Contact',
-      contact: new Contact({}).save(function(err){
-          if(err){
-            console.log(err);
-          }else{
-            console.log("New contact added");
-            console.log(contact);
-          }
-      })
+      contact: new Contact({})
   })
 }
 
