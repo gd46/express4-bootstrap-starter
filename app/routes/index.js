@@ -14,7 +14,7 @@ var API = {}
 API.tricks = require(config.root + '/controllers/API/tricks');
 API.Uploader = require(config.root + '/controllers/API/uploader');
 API.Users = require(config.root + '/controllers/API/users');
-API.contacts = require(config.root + '/controllers/API/contacts');
+
 
 
 
@@ -22,7 +22,6 @@ API.contacts = require(config.root + '/controllers/API/contacts');
 Route
   .get('/contacts/create', Auth.requiresLogin, contactsController.create)
   .get('/:username/contacts', Auth.requiresLogin, contactsController.contacts)
-  .post('/api/contacts/create', API.contacts.create)
 
 // API Routes
 Route
