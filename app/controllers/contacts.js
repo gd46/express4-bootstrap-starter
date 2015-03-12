@@ -13,6 +13,21 @@ exports.create = function(req, res) {
   })
 }
 
+exports.save = function(req,res){
+  var newContact = Contact({
+      // Left is defined my schema, right is what you want to call it.
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      phonenumber: req.body.phonenumber
+
+  });
+  newContact.save(function(err, data){
+    if(err){
+      console.log(err);
+    } res.redirect('/' + req.user.username + '/contacts');
+  })
+}
+
 exports.contacts = function (req, res) {
   var current_username = req.user.username;
   var username_params = req.params.username;

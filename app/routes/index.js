@@ -22,6 +22,7 @@ API.Users = require(config.root + '/controllers/API/users');
 Route
   .get('/contacts/create', Auth.requiresLogin, contactsController.create)
   .get('/:username/contacts', Auth.requiresLogin, contactsController.contacts)
+  .post('/contacts/create', Auth.requiresLogin, contactsController.save)
 
 // API Routes
 Route
