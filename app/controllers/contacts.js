@@ -32,9 +32,11 @@ exports.save = function(req,res){
       //res.render('/' + req.user.username + '/contacts', req);
      
       var contacts = Contact.find({}, function(err, data){
-        res.json(data);
+        //res.json(data);
       });
-      res.render('/' + req.user.username + '/contacts', contacts);
+      res.render('contacts/main', {
+       contacts: contacts,
+       title: 'My Contacts'});
     }
   })
 }

@@ -6,14 +6,13 @@ block main
 		h2.title.page-title.m-t-none.pull-left=title
 		.pull-right
 			a.btn.btn-primary.pull-right(href="/contacts/create" title="Create New Contact") Add Contact
-		//- each contact in contacts
-		//- 	tr
-		//- 		td #{contact.firstname}
-		//- 		td #{contact.lastname}
-		//- 		td #{contact.phonenumber}
-		each contact in contacts 
-			tr
-				td #{contact.firstname}
+		each contact in contacts
+			table
+				tr
+					td #{contact.firstname}
+					td #{contact.lastname}
+					td #{contact.phonenumber}
+		
 		
 
 
