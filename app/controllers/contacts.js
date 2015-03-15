@@ -21,10 +21,21 @@ exports.save = function(req,res){
       phonenumber: req.body.phonenumber
 
   });
-  newContact.save(function(err, data){
+  newContact.save(function(err, newContact){
     if(err){
       console.log(err);
-    } res.redirect('/' + req.user.username + '/contacts');
+    }
+    else{
+      // res.redirect('/' + req.user.username + '/contacts');
+      // console.log(req);
+      // console.log(req.body.firstname);
+      //res.render('/' + req.user.username + '/contacts', req);
+     
+      var contacts = Contact.find({}, function(err, data){
+        res.json(data);
+      });
+      res.render('/' + req.user.username + '/contacts', contacts);
+    }
   })
 }
 
