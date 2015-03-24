@@ -23,7 +23,9 @@ exports.save = function(req,res){
   });
   newContact.save(function(err, newContact){
     if(err){
-      console.log(err);
+      return res.json(500, {
+        error: 'Cannot save contact'
+      })
     }
     else{
       // res.redirect('/' + req.user.username + '/contacts');
@@ -31,12 +33,13 @@ exports.save = function(req,res){
       // console.log(req.body.firstname);
       //res.render('/' + req.user.username + '/contacts', req);
      
-      var contacts = Contact.find({}, function(err, data){
-        //res.json(data);
-      });
-      res.render('contacts/main', {
-       contacts: contacts,
-       title: 'My Contacts'});
+      // var contacts = Contact.find({}, function(err, contacts){
+      //   //res.json(contacts);
+      // });
+      // res.render('contacts/main', {
+      //  contacts: 'contacts',
+      //  title: 'My Contacts'});
+
     }
   })
 }
@@ -48,8 +51,13 @@ exports.contacts = function (req, res) {
   if( current_username !== username_params) {
       res.redirect('/'+username_params)
   }
-
+  var contactsData;
+  Contact.find({}, function(err, contacts){
+        //res.json(contacts);
+        contactsData = contacts;
+      });
   res.render('contacts/main', {
-    title: 'My Contacts'
+    title: 'My Contacts',
+    contacts: contactsData
   })
 }
